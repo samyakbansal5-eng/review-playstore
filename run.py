@@ -6,7 +6,7 @@ sys.path.insert(0, str(Path(__file__).parent / "src"))
 
 def main():
     ap = argparse.ArgumentParser(description="App Voice-of-Customer engine")
-    ap.add_argument("command", choices=["scrape", "label-sample", "label", "classify", "evaluate", "analyze"])
+    ap.add_argument("command", choices=["scrape", "label-sample", "label", "suggest", "classify", "evaluate", "analyze"])
     ap.add_argument("--domain", default="upi")
     ap.add_argument("--limit", type=int, default=None, help="classify only N reviews (testing)")
     ap.add_argument("--port", type=int, default=8765)
@@ -18,6 +18,8 @@ def main():
         from voc import labeling; labeling.make_sample(a.domain)
     elif a.command == "label":
         from voc import labeling; labeling.serve(a.domain, a.port)
+    elif a.command == "suggest":
+        from voc import labeling; labeling.suggest(a.domain)
     elif a.command == "classify":
         from voc import classify; classify.run(a.domain, a.limit)
     elif a.command == "evaluate":
