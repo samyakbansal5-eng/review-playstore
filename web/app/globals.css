@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --surface-2: #f0f2f8;
+  --border: #e3e6ef;
+  --fg: #0f1424;
+  --muted: #5d6579;
+  --accent: #4f46e5;
+  --accent-soft: #eceafd;
+  --good: #059669;
+  --bad: #dc2626;
+  --c1: #4f46e5; --c2: #0891b2; --c3: #d97706; --c4: #db2777; --c5: #059669;
+  --c6: #7c3aed; --c7: #ea580c; --c8: #475569; --c9: #0d9488;
+}
+:root[data-theme="dark"] {
+  --bg: #090c14;
+  --surface: #121725;
+  --surface-2: #1a2133;
+  --border: #25304a;
+  --fg: #e8ebf5;
+  --muted: #94a0bb;
+  --accent: #8b87ff;
+  --accent-soft: #1f2347;
+  --good: #34d399;
+  --bad: #f87171;
+  --c1: #8b87ff; --c2: #22d3ee; --c3: #fbbf24; --c4: #f472b6; --c5: #34d399;
+  --c6: #a78bfa; --c7: #fb923c; --c8: #94a3b8; --c9: #2dd4bf;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface2: var(--surface-2);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accentsoft: var(--accent-soft);
+  --color-good: var(--good);
+  --color-bad: var(--bad);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-geist-sans), system-ui, sans-serif; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+.recharts-text { fill: var(--muted) !important; font-size: 12px; }
+.recharts-cartesian-grid line { stroke: var(--border); }

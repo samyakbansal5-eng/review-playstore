@@ -1,0 +1,52 @@
+domain: investing
+title: Investing & Trading
+description: Retail broking apps — a second domain that shows the engine generalises.
+country: in
+lang: en
+months_back: 12         # time window covered (enables trend analysis)
+target_per_app: 2400    # reviews analysed per app (equal monthly quota, reweighted later)
+label_sample_size: 50
+apps:
+  - {id: zerodha, name: Zerodha Kite, package: com.zerodha.kite3}
+  - {id: groww,   name: Groww,        package: com.nextbillion.groww}
+  - {id: upstox,  name: Upstox,       package: in.upstox.app}
+  - {id: angelone, name: Angel One,   package: com.msf.angelmobile}
+themes:
+  - id: onboarding_kyc
+    name: Onboarding & KYC
+    definition: Account opening, KYC/e-sign, bank or demat linking, login and OTP issues at signup.
+  - id: order_failures
+    name: Order & trade failures
+    definition: Orders rejected or delayed, wrong execution price, app unavailable during market hours, withdrawals/fund transfers failing or slow.
+  - id: support
+    name: Customer support
+    definition: Unresponsive or unhelpful support, no human agent, unresolved tickets.
+  - id: fees_pricing
+    name: Fees & brokerage
+    definition: Brokerage, hidden charges, AMC, DP charges, margin or pricing complaints and comparisons.
+  - id: trust
+    name: Trust & security
+    definition: Fraud, account freezes, unauthorised actions, data privacy, fears about safety of funds.
+  - id: performance_ux
+    name: App performance & UX
+    definition: Crashes, lag, bugs, charts/data delays, confusing design, updates that broke things.
+  - id: product_features
+    pain: false
+    name: Product & features
+    definition: Requests for missing features or praise/complaints about product offerings (MF, IPO, F&O, charts, alerts) without a specific problem above.
+  - id: other
+    pain: false
+    name: Other / unclear
+    definition: Too short, spam, off-topic, or fits none of the above.
+features:
+  - {id: advanced_charts, name: Advanced charts / indicators}
+  - {id: mf_investing, name: Mutual funds}
+  - {id: ipo, name: IPO applications}
+  - {id: fno, name: F&O / options tools}
+  - {id: price_alerts, name: Price alerts / GTT}
+  - {id: tax_reports, name: Tax / P&L reports}
+  - {id: dark_mode, name: Dark mode / customisation}
+  - {id: watchlists, name: Watchlists / multiple lists}
+  - {id: us_stocks, name: US stocks / international}
+  - {id: paper_trading, name: Paper trading / learning}
+  - {id: hindi_regional, name: Regional language support}

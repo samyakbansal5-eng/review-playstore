@@ -1,0 +1,10 @@
+.venv/
+.env
+__pycache__/
+data/raw/
+node_modules/
+.next/
+.DS_Store
+data/*.log
+data/processed/*.jsonl
+web/public/data/

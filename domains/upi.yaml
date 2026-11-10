@@ -1,0 +1,56 @@
+domain: upi
+title: UPI Payments
+description: India's leading UPI payment apps, plus Kiwi (UPI on credit card).
+country: in
+lang: en
+months_back: 12         # time window covered (enables trend analysis)
+target_per_app: 4800    # reviews analysed per app (equal monthly quota, reweighted later)
+label_sample_size: 200
+apps:
+  - {id: phonepe, name: PhonePe,    package: com.phonepe.app}
+  - {id: gpay,    name: Google Pay, package: com.google.android.apps.nbu.paisa.user}
+  - {id: paytm,   name: Paytm,      package: net.one97.paytm}
+  - {id: kiwi,    name: Kiwi,       package: in.gokiwi.kiwitpap}
+themes:
+  - id: onboarding_kyc
+    name: Onboarding & KYC
+    definition: Problems signing up, verifying identity/KYC, linking a bank account or SIM, OTP/login, account blocks at registration.
+  - id: payment_failures
+    name: Payment failures
+    definition: Transactions failing, stuck or pending, money debited but not credited, refunds delayed, bank-server-down errors, transaction limits.
+  - id: support
+    name: Customer support
+    definition: Quality or absence of help — unresponsive support, chatbot loops, no human agent, unresolved complaints, grievance handling.
+  - id: rewards
+    name: Rewards & offers
+    definition: Cashback, scratch cards, coupons, referral bonuses, reward fairness, missing or removed rewards.
+  - id: trust
+    name: Trust & security
+    definition: Fraud, scams, unauthorised debits, privacy/data concerns, account freezes, fears about safety, hidden charges or deceptive practices.
+  - id: fees_pricing
+    name: Fees & pricing
+    definition: Convenience fees, platform fees, charges on recharge/bills, interest or credit-card charges.
+  - id: performance_ux
+    name: App performance & UX
+    definition: Crashes, lag, bugs, slow loading, confusing design, updates that broke things, battery or storage use.
+  - id: features
+    pain: false
+    name: Feature requests / praise
+    definition: Asks for a missing feature, or general praise/complaint about what the app offers without a specific problem above.
+  - id: other
+    pain: false
+    name: Other / unclear
+    definition: Too short, spam, off-topic, or fits none of the above (e.g. "good", "nice app").
+features:
+  - {id: upi_credit, name: UPI on credit card}
+  - {id: autopay, name: Autopay / mandates}
+  - {id: bill_split, name: Bill split / group pay}
+  - {id: multi_bank, name: Multiple bank accounts}
+  - {id: international, name: International payments}
+  - {id: offline, name: Offline / UPI Lite}
+  - {id: tap_to_pay, name: Tap & pay / NFC}
+  - {id: spend_analytics, name: Spend tracking / analytics}
+  - {id: dark_mode, name: Dark mode / customisation}
+  - {id: credit_line, name: Credit line / loans}
+  - {id: hindi_regional, name: Regional language support}
+  - {id: transaction_history, name: Transaction history / statements}
