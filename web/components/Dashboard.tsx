@@ -87,7 +87,7 @@ export default function Dashboard() {
         )}
       </main>
       <footer className="border-t border-border py-8 text-center text-sm text-muted">
-        Built from public Google Play reviews · Pipeline, prompts and hand labels are open-source ·{" "}
+        Built from public Google Play reviews · Pipeline, prompts and labels are open-source ·{" "}
         <a className="underline" href={REPO}>View code</a>
       </footer>
     </div>
@@ -111,7 +111,7 @@ function Hero({ d, e, index, domainId, setDomainId }: { d: Domain; e: Evaluation
   const stats: [string, string, string][] = [
     [num(h.reviews_analysed), "reviews analysed", `of ${num(h.reviews_in_window)} in window`],
     [String(h.apps), "apps compared", d.apps.map((a) => a.name).join(" · ")],
-    [e ? pct(e.agreement) : "–", "LLM vs human agreement", e ? `${e.n_labelled} hand-labelled reviews` : "pending"],
+    [e ? pct(e.agreement) : "–", "LLM vs reviewed-label agreement", e ? `${e.n_labelled} human-reviewed labels` : "pending"],
     [pct(h.top_pain_share_of_one_star), "of 1★ reviews", topTheme ? `are about ${topTheme.name}` : ""],
   ];
   return (
@@ -130,7 +130,7 @@ function Hero({ d, e, index, domainId, setDomainId }: { d: Domain; e: Evaluation
       </h1>
       <p className="mt-4 max-w-3xl text-lg text-muted">
         {d.description} {num(h.reviews_analysed)} public reviews ({monthLabel(h.months[0])} – {monthLabel(h.months[1])}) classified by an LLM
-        and validated against my own hand labels.
+        and checked against human-reviewed labels (AI-suggested, then reviewed by me — see Methodology).
       </p>
       <div className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-4">
         {stats.map(([big, label, small]) => (
@@ -420,14 +420,14 @@ function Method({ d, e }: { d: Domain; e: Evaluation | null }) {
     <Section id="method" title="Methodology & trust" sub="How the numbers were produced, and how far to trust them.">
       <div className="grid gap-4 lg:grid-cols-2">
         <div className="card p-6">
-          <div className="flex items-center gap-2 font-semibold"><ShieldCheck size={18} className="text-good" /> Human validation</div>
+          <div className="flex items-center gap-2 font-semibold"><ShieldCheck size={18} className="text-good" /> Label validation</div>
           {e ? (
             <>
               <div className="mt-3 flex items-end gap-6">
-                <div><div className="text-4xl font-semibold">{pct(e.agreement, 1)}</div><div className="text-sm text-muted">agreement with {e.n_labelled} hand labels</div></div>
+                <div><div className="text-4xl font-semibold">{pct(e.agreement, 1)}</div><div className="text-sm text-muted">agreement with {e.n_labelled} human-reviewed labels</div></div>
                 <div><div className="text-2xl font-semibold">{e.kappa.toFixed(2)}</div><div className="text-sm text-muted">Cohen's κ</div></div>
               </div>
-              <p className="mt-3 text-sm text-muted">Model: <code>{e.model}</code>. I labelled a random sample blind (no model output or star rating shown), then tuned the prompt until agreement was acceptable.{e.notes ? ` ${e.notes}` : ""}</p>
+              <p className="mt-3 text-sm text-muted">Model: <code>{e.model}</code>. A different Gemini model pre-labelled a rating-stratified sample; I reviewed every label in a small tool (star rating hidden) and could override it.{e.notes ? ` ${e.notes}` : ""}</p>
               <table className="mt-4 w-full text-sm">
                 <thead className="text-left text-xs uppercase tracking-wide text-muted"><tr><th className="py-1">Theme</th><th className="text-right">n</th><th className="text-right">Prec.</th><th className="text-right">Recall</th></tr></thead>
                 <tbody>{e.per_theme.filter((t) => t.support > 0).map((t) => (
@@ -443,7 +443,7 @@ function Method({ d, e }: { d: Domain; e: Evaluation | null }) {
             <li>Scrape the last 12 months of public Play Store reviews (India) with <code>google-play-scraper</code>.</li>
             <li>Keep an equal random quota per month so trends are visible; re-weight so overall shares match the true mix.</li>
             <li>An LLM assigns each review one theme, a sentiment and any feature mentioned, using theme definitions I wrote.</li>
-            <li>Agreement is measured on reviews I labelled by hand; the prompt was iterated until it was acceptable.</li>
+            <li>Agreement is measured on a sample of reviews whose labels were AI-suggested and then reviewed by me.</li>
             <li>Rating impact = a theme's average rating minus the app's overall average.</li>
           </ol>
           <div className="mt-5 font-semibold">Theme definitions</div>
