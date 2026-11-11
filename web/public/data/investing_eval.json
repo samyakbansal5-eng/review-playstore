@@ -1,0 +1,169 @@
+{
+  "domain": "investing",
+  "labels_changed_by_reviewer": 0,
+  "notes": "Labelling mode: AI-suggested, human-reviewed. A different Gemini model pre-labelled each review and I reviewed them, changing 0 of 52. Because most suggestions were accepted, this figure measures consistency with a second model plus my review, not fully independent human labelling.",
+  "n_labelled": 52,
+  "agreement": 0.9423076923076923,
+  "kappa": 0.9255369928400954,
+  "model": "gemini:gemini-3.5-flash-lite",
+  "per_theme": [
+    {
+      "theme": "onboarding_kyc",
+      "name": "Onboarding & KYC",
+      "support": 2,
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8
+    },
+    {
+      "theme": "order_failures",
+      "name": "Order & trade failures",
+      "support": 6,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "theme": "support",
+      "name": "Customer support",
+      "support": 7,
+      "precision": 1.0,
+      "recall": 0.8571428571428571,
+      "f1": 0.923076923076923
+    },
+    {
+      "theme": "fees_pricing",
+      "name": "Fees & brokerage",
+      "support": 2,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "theme": "trust",
+      "name": "Trust & security",
+      "support": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    {
+      "theme": "performance_ux",
+      "name": "App performance & UX",
+      "support": 16,
+      "precision": 1.0,
+      "recall": 0.875,
+      "f1": 0.9333333333333333
+    },
+    {
+      "theme": "product_features",
+      "name": "Product & features",
+      "support": 3,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "theme": "other",
+      "name": "Other / unclear",
+      "support": 16,
+      "precision": 0.8888888888888888,
+      "recall": 1.0,
+      "f1": 0.9411764705882353
+    }
+  ],
+  "confusion": {
+    "labels": [
+      "onboarding_kyc",
+      "order_failures",
+      "support",
+      "fees_pricing",
+      "trust",
+      "performance_ux",
+      "product_features",
+      "other"
+    ],
+    "matrix": [
+      [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        14,
+        0,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        16
+      ]
+    ]
+  }
+}

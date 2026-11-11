@@ -32,7 +32,11 @@ def run(domain: str):
                     "precision": pr, "recall": rc, "f1": f1})
     ids = cfg["theme_ids"]
     cm = [[int(((sample.human == h) & (sample.llm == l)).sum()) for l in ids] for h in ids]
-    res = {"domain": domain, "n_labelled": len(sample), "agreement": acc, "kappa": kappa,
+    changed = int((labels["human"] != labels["suggested"].fillna("")).sum()) if "suggested" in labels else None
+    notes = ("Labelling mode: AI-suggested, human-reviewed. A different Gemini model pre-labelled each review and I "
+             f"reviewed them, changing {changed} of {len(labels)}. Because most suggestions were accepted, this figure measures "
+             "consistency with a second model plus my review, not fully independent human labelling.") if changed is not None else None
+    res = {"domain": domain, "labels_changed_by_reviewer": changed, "notes": notes, "n_labelled": len(sample), "agreement": acc, "kappa": kappa,
            "model": f"{PROVIDER}:{MODEL}", "per_theme": per, "confusion": {"labels": ids, "matrix": cm}}
     out = p["export"]; out.mkdir(parents=True, exist_ok=True)
     (out / f"{domain}_eval.json").write_text(json.dumps(res, indent=2))

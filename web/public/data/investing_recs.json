@@ -1,0 +1,56 @@
+[
+ {
+  "title": "Show full charges on the order ticket before the user confirms",
+  "problem": "Brokerage and statutory charges feel hidden, and fee complaints are a leading cause of 1★ reviews.",
+  "evidence": [
+   "Fees & brokerage is 27.6% of Upstox's 1★ reviews, 17.5% of Groww's and 13.9% of Angel One's.",
+   "Those reviews average 1.6★ (Upstox), 1.7★ (Angel One) and 2.4★ (Groww), well below each app's own average.",
+   "Users complain about charges 'hidden in the balance' and total costs that exceed the advertised brokerage."
+  ],
+  "quotes": [
+   {
+    "app": "Groww",
+    "text": "show brokerage charges on order -> list of trades, instead of hiding it in the balance."
+   }
+  ],
+  "metric": "Fee-related share of 1★ reviews",
+  "impact": "Medium",
+  "effort": "Low"
+ },
+ {
+  "title": "Make charts fast and stable on mid-range phones",
+  "problem": "On the market-leading broker, laggy charts dominate dissatisfaction.",
+  "evidence": [
+   "App performance & UX is 41.1% of Zerodha Kite's 1★ reviews (24.0% of all its reviews), averaging 2.72★.",
+   "'Advanced charts' come up in 10.7% of Zerodha reviews and 70% of those mentions are negative; at Upstox it is 4.3% of reviews, 76% negative.",
+   "Users describe charts that hang or lag when opening option premium charts."
+  ],
+  "quotes": [
+   {
+    "app": "Zerodha Kite",
+    "text": "too much laggy, can't even open option premium charts."
+   }
+  ],
+  "metric": "Chart load time; perf share of 1★",
+  "impact": "High",
+  "effort": "Medium"
+ },
+ {
+  "title": "Explain rejected or delayed orders in plain language, in the moment",
+  "problem": "Failed orders and stuck fund transfers cost users money and trust, with the harshest ratings.",
+  "evidence": [
+   "Order & trade failures average 1.55★ (Zerodha, Angel One) to 2.18★ (Groww) — 1.5 to 2.0 stars below each app's average.",
+   "They are 17.2% of Groww's 1★ reviews, 14.6% of Zerodha's and 12.4% of Angel One's.",
+   "Support follow-ups are slow: reviewers report requests left 'Processing' for days."
+  ],
+  "quotes": [
+   {
+    "app": "Upstox",
+    "text": "I requested a primary bank account change more than a week ago, but it is still showing 'Processing' and there is no response from support."
+   }
+  ],
+  "metric": "Order-failure share of 1★; ticket reopen rate",
+  "impact": "Medium",
+  "effort": "Medium"
+ }
+]

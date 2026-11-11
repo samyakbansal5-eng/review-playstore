@@ -22,7 +22,11 @@ def r4(x):
 def run(domain: str):
     cfg, p = load_domain(domain), paths(domain)
     df = pd.read_parquet(p["preds"])
+    # Some reviews may be unclassified (e.g. free-tier quota ran out). Drop them and re-scale weights within each
+    # app-month so the classified reviews still represent that month's true population.
+    group_w = df.groupby(["app_id", "month"])["weight"].transform("sum")
     df = df[df["theme"] != "unclassified"].copy()
+    df["weight"] = df["weight"] * group_w.loc[df.index] / df.groupby(["app_id", "month"])["weight"].transform("sum")
     monthly = pd.read_parquet(p["sample"].with_name(f"{domain}_monthly.parquet"))
     themes = {t["id"]: t for t in cfg["themes"]}
     pain_ids = [t["id"] for t in cfg["themes"] if t.get("pain", True)]
